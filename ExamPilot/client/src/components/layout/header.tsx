@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-4">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <h1 className="text-xl font-semibold text-foreground">C&S Unification EduTest Platform</h1>
+            <h1 className="text-xl font-semibold text-foreground">C-S Unification EduTest Platform</h1>
           </Link>
           
           <div className="flex items-center space-x-4">
