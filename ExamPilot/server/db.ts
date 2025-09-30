@@ -1,10 +1,9 @@
 import { Pool, neonConfig } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
+import { drizzle as drizzleNeon } from 'drizzle-orm/neon-serverless';
+import { drizzle as drizzleNode } from 'drizzle-orm/node-postgres';
+import { Pool as NodePool } from 'pg';
 import ws from "ws";
 import * as schema from "@shared/schema";
-
-neonConfig.webSocketConstructor = ws;
-neonConfig.fetchConnectionCache = true;
 
 const databaseUrl = process.env.NEON_DATABASE_URL || process.env.DATABASE_URL;
 
@@ -14,13 +13,32 @@ if (!databaseUrl) {
   );
 }
 
-export const pool = new Pool({ 
-  connectionString: databaseUrl,
-  connectionTimeoutMillis: 10000,
-  idleTimeoutMillis: 30000,
-  max: 10
-});
-export const db = drizzle({ client: pool, schema });
+const isNeon = databaseUrl.includes('neon.tech') || process.env.NEON_DATABASE_URL;
+
+let pool: Pool | NodePool;
+let db: ReturnType<typeof drizzleNeon> | ReturnType<typeof drizzleNode>;
+
+if (isNeon) {
+  neonConfig.webSocketConstructor = ws;
+  neonConfig.fetchConnectionCache = true;
+  pool = new Pool({ 
+    connectionString: databaseUrl,
+    connectionTimeoutMillis: 10000,
+    idleTimeoutMillis: 30000,
+    max: 10
+  });
+  db = drizzleNeon({ client: pool, schema });
+} else {
+  pool = new NodePool({ 
+    connectionString: databaseUrl,
+    max: 10,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 10000
+  });
+  db = drizzleNode({ client: pool, schema });
+}
+
+export { pool, db };
 
 export async function warmupDatabase() {
   try {
