@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: exampilot
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+    healthCheckPath: /
+
+databases:
+  - name: exampilot-db
+    databaseName: exampilot
+    user: exampilot
