@@ -25,13 +25,13 @@ if (isNeon) {
     connectionString: databaseUrl,
     connectionTimeoutMillis: 10000,
     idleTimeoutMillis: 30000,
-    max: 10
+    max: 25
   });
   db = drizzleNeon({ client: pool, schema });
 } else {
   pool = new NodePool({ 
     connectionString: databaseUrl,
-    max: 10,
+    max: 25,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 10000
   });
