@@ -43,7 +43,7 @@ export { pool, db };
 export async function warmupDatabase() {
   try {
     console.log('Warming up database connection...');
-    await pool.query('SELECT 1');
+    await db.execute('SELECT 1');
     console.log('Database connection ready!');
     return true;
   } catch (error) {
