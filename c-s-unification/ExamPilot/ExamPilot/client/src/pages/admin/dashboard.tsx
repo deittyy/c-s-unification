@@ -9,7 +9,7 @@ import { isUnauthorizedError } from "@/lib/authUtils";
 import { apiRequest } from "@/lib/queryClient";
 import AdminSidebar from "@/components/layout/admin-sidebar";
 import { Shield, Users, HelpCircle, ClipboardCheck, TrendingUp, LogOut } from "lucide-react";
-import { Link } from "wouter";
+// import { Link } from "wouter";
 
 interface AdminStats {
   totalStudents: number;
@@ -114,7 +114,7 @@ export default function AdminDashboard() {
             <span className="text-xs md:text-sm opacity-90 hidden sm:inline" data-testid="text-admin-name">
               {admin?.firstName} {admin?.lastName}
             </span>
-               <Link href="/">
+               {/* <Link href="/">
               <Button
                 variant="ghost"
                 size="sm"
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
                 <Home className="h-4 w-4 mr-0 md:mr-1" />
                 <span className="hidden md:inline">Home</span>
               </Button>
-            </Link>
+            </Link> */}
             <Button
               variant="ghost"
               size="sm"
