@@ -16,8 +16,10 @@ import {
   Atom, 
   FlaskConical, 
   Dna,
-  LogOut 
+  LogOut,
+  Home
 } from "lucide-react";
+import { Link } from "wouter";
 
 interface Course {
   id: string;
@@ -140,6 +142,16 @@ export default function StudentDashboard() {
             <span className="text-sm opacity-90" data-testid="text-student-name">
               {student?.firstName} {student?.lastName}
             </span>
+             <Link href="/">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="bg-primary-foreground/20 hover:bg-primary-foreground/30"
+              >
+                <Home className="h-4 w-4 mr-1" />
+                Home
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="sm"
