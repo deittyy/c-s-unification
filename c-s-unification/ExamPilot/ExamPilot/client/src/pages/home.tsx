@@ -17,10 +17,10 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-2 animate-fade-up">
-         C &amp S Unification CBT WebApp
+         C & S Unification CBT WebApp
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-4 animate-fade-up animate-delay-200 opacity-0">
-            Comprehensive Computer-Based Testing solution for C &amp S Unification. 
+            Comprehensive Computer-Based Testing solution for C & S Unification. 
             {/* Separate admin and student portals with advanced question management and real-time analytics. */}
           </p>
           
