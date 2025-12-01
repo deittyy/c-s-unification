@@ -55,7 +55,7 @@ export default function AdminQuestions() {
   const [courseFormData, setCourseFormData] = useState({
     name: "",
     description: "",
-    duration: 60,
+    duration: 20,
   });
 
   useEffect(() => {
@@ -195,7 +195,7 @@ export default function AdminQuestions() {
       });
       queryClient.invalidateQueries({ queryKey: ["/api/courses"] });
       setShowCourseForm(false);
-      setCourseFormData({ name: "", description: "", duration: 60 });
+      setCourseFormData({ name: "", description: "", duration: 15 });
     },
     onError: (error) => {
       if (isUnauthorizedError(error)) {
