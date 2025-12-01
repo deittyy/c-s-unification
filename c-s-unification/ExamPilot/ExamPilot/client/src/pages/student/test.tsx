@@ -311,7 +311,7 @@ export default function StudentTest() {
               <div className="text-right">
                 <p className="text-sm text-muted-foreground">Time Remaining</p>
                 <Timer 
-                  initialSeconds={course.duration * 20} 
+                  initialSeconds={course.duration * 60} 
                   onTimeUp={handleTimeUp}
                 />
               </div>
