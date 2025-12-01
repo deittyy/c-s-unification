@@ -223,7 +223,7 @@ export default function StudentTest() {
   const handleSubmitTest = () => {
     if (!testAttempt || !questions) return;
 
-    const timeSpent = course ? (course.duration * 60) - (timeUp ? 0 : 60) : 0; // Simplified time calculation
+    const timeSpent = course ? (course.duration * 20) - (timeUp ? 0 : 20) : 0; // Simplified time calculation
 
     completeTestMutation.mutate({
       testAttemptId: testAttempt.id,
